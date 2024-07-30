@@ -1,0 +1,59 @@
+{
+    "result": [
+      {
+        "status": "0",
+        "project": "Champlin, Davis and Friesen",
+        "description": "Legacy",
+        "projecManager": "2",
+        "assignedTo": "0",
+        "creationDate": "2023-11-05T21:20:05.773Z",
+        "uuid": "1a0f2dc5-6449-4182-94d1-fa42755beb28"
+      },
+      {
+        "status": "0",
+        "project": "Langosh and Sons",
+        "description": "Human",
+        "projecManager": "1",
+        "assignedTo": "2",
+        "creationDate": "2022-01-14T21:22:24.574Z",
+        "uuid": "58488769-390c-47fd-a383-cb41c72705cb"
+      },
+      {
+        "status": "0",
+        "project": "Stark - Bartell",
+        "description": "Legacy",
+        "projecManager": "0",
+        "assignedTo": "0",
+        "creationDate": "2022-04-03T16:27:36.319Z",
+        "uuid": "0aa2b175-22a4-4bb4-b221-3a3b7cb4ad68"
+      },
+      {
+        "status": "0",
+        "project": "Stark - Bartell",
+        "description": "Legacy",
+        "projecManager": "2",
+        "assignedTo": "0",
+        "creationDate": "2022-04-03T16:27:36.319Z",
+        "uuid": "0aa2b175-22a4-4bb4-b221-3a34c6b4ad68"
+      },
+      {
+        "status": "1",
+        "project": "Stark - Bartell",
+        "description": "Legacy",
+        "projecManager": "2",
+        "assignedTo": "0",
+        "creationDate": "2022-04-03T16:27:36.319Z",
+        "uuid": "0aa2b175-22a4-4bb4-b221-553b7cb4ad68"
+      },
+      {
+        "status": "1",
+        "project": "Stark - Bartell",
+        "description": "Legacy",
+        "projecManager": "2",
+        "assignedTo": "0",
+        "creationDate": "2022-04-03T16:27:36.319Z",
+        "uuid": "0aa2b175-22a4-4bb4-b221-3a3b7a54ad68"
+      }
+
+    ]
+  }
