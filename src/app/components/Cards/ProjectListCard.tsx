@@ -6,14 +6,14 @@ import Link from "next/link"
 import DeleteConfirmationModal from "../Modals/DeleteConfirmationModal"
 
 interface projectCardProps {
-    key: number,
+    key: string,
     project: {
         "status": string,
         "project": string,
         "description": string,
-        "projecManager": number,
-        "assignedTo":number,
-        "creationDate":Date,
+        "projecManager": string,
+        "assignedTo":string,
+        "creationDate":string,
         "uuid": string
       },
     
@@ -55,7 +55,7 @@ const ProjectListCard:React.FC<projectCardProps> = ({key, project}) => {
             </div>
             <Image onClick={handleOpen} className="w-1 h-4 cursor-pointer" src="/Vector.png" alt="" width={12} height={12}/>
         </div>
-        <User user={assignedTo[project.assignedTo]}/>
+        <User user={assignedTo[Number(project.assignedTo)]}/>
         {open && <div className="w-[180px] h-[76px] bg-white shadow-[0px_2px_8px_0px_#00000015] absolute top-10 right-3 z-10 before:content-[''] before:absolute before:top-1/2  before:right-[100%] before:translate-x-[180px] before:-translate-y-12 before:border-8 before:border-x-transparent before:border-t-transparent before:border-b-white">
             
             <Link href="/edit" className="text-xs flex gap-3 py-2 ">
@@ -71,15 +71,21 @@ Delete</p>
         </div>}
     </div>
     <div key={key} className="py-2 lg:grid lg:grid-cols-5 lg:w-full lg:justify-center place-content-center hidden shadow-[0px_-1px_0px_0px_#D9D9D9] relative">
-        <div className="flex flex-col"><h4 className="text-sm text-black/65">{project?.project}</h4><p className="text-[10px] text-black/45">Creation date: {new Date(project?.creationDate).toISOString()}</p></div>
-        <div className="flex justify-start gap-2 ml-16"><svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="flex flex-col">
+            <h4 className="text-sm text-black/65">{project?.project}</h4>
+            <p className="text-[10px] text-black/45">Creation date: {new Date(project?.creationDate).toISOString()}</p>
+        </div>
+        <div className="flex justify-start gap-2 ml-16">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="13.2595" cy="12" rx="12.4444" ry="12" fill="#FFE0B3"/>
-                <path d="M7.84944 15H8.66762L10.1122 9.78409H10.1634L11.608 15H12.4261L14.2159 8.45455H13.4105L12.0426 13.7855H11.9787L10.5852 8.45455H9.69035L8.29688 13.7855H8.23296L6.86507 8.45455H6.05967L7.84944 15ZM20.1629 10.5C19.92 9.15767 18.8462 8.36506 17.5294 8.36506C15.8547 8.36506 14.6402 9.65625 14.6402 11.7273C14.6402 13.7983 15.8547 15.0895 17.5294 15.0895C18.8462 15.0895 19.92 14.2969 20.1629 12.9545H19.3703C19.1785 13.8622 18.3987 14.348 17.5294 14.348C16.3405 14.348 15.4072 13.4276 15.4072 11.7273C15.4072 10.027 16.3405 9.10653 17.5294 9.10653C18.3987 9.10653 19.1785 9.59233 19.3703 10.5H20.1629Z" fill="#CA4A02"/>
+            <path d="M7.84944 15H8.66762L10.1122 9.78409H10.1634L11.608 15H12.4261L14.2159 8.45455H13.4105L12.0426 13.7855H11.9787L10.5852 8.45455H9.69035L8.29688 13.7855H8.23296L6.86507 8.45455H6.05967L7.84944 15ZM20.1629 10.5C19.92 9.15767 18.8462 8.36506 17.5294 8.36506C15.8547 8.36506 14.6402 9.65625 14.6402 11.7273C14.6402 13.7983 15.8547 15.0895 17.5294 15.0895C18.8462 15.0895 19.92 14.2969 20.1629 12.9545H19.3703C19.1785 13.8622 18.3987 14.348 17.5294 14.348C16.3405 14.348 15.4072 13.4276 15.4072 11.7273C15.4072 10.027 16.3405 9.10653 17.5294 9.10653C18.3987 9.10653 19.1785 9.59233 19.3703 10.5H20.1629Z" fill="#CA4A02"/>
             </svg>
-        {projectManagers[project.projecManager]}</div>
-        <div className="ml-16"><User user={assignedTo[project.assignedTo]}/></div>
+        {projectManagers[Number(project.projecManager)]}</div>
+        <div className="ml-16"><User user={assignedTo[Number(project.assignedTo)]}/></div>
         <div className="ml-24">{status[Number(project.status)]}</div>
-        <div className="w-full flex justify-center"><Image onClick={handleOpen} className="w-1 h-4 cursor-pointer place-content-center" src="/Vector.png" alt="" width={24} height={24}/></div>
+        <div className="w-full flex justify-center">
+            <Image onClick={handleOpen} className="w-1 h-4 cursor-pointer place-content-center" src="/Vector.png" alt="" width={24} height={24}/>
+            </div>
         {open && <div className="w-[180px] h-[76px] bg-white shadow-[0px_2px_8px_0px_#00000015] absolute top-10 right-3 z-10 before:content-[''] before:absolute before:top-1/2  before:right-[100%] before:translate-x-[180px] before:-translate-y-12 before:border-8 before:border-x-transparent before:border-t-transparent before:border-b-white">
             
             <Link href="/edit" className="text-xs flex gap-3 py-2 ">

@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 interface DeleteConfirmationModalProps {
   isOpen: boolean;
   onConfirm: () => void;

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
 interface SearchProjectProps {
-  projects: any[];
   onSearch: (searchTerm: string) => void;
 }
 
-const SearchProject: React.FC<SearchProjectProps> = ({ projects, onSearch }) => {
+const SearchProject: React.FC<SearchProjectProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -5,13 +5,19 @@ import { useEffect, useState } from "react";
 import data from './datos.json';
 import SearchProject from "./components/SearchProject";
 
-interface ProjectsProps {
-  project: string;
-  creationDate: string;
+interface Data{
+  "status": string,
+  "project": string,
+  "description": string,
+  "projecManager": string,
+  "assignedTo":string,
+  "creationDate":string,
+  "uuid": string
 }
 
+
 export default function Home() {
-  const [projects, setProjects] = useState<ProjectsProps[] | undefined>([]);
+  const [projects, setProjects] = useState<Data[] | undefined>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,7 +47,7 @@ export default function Home() {
         </Link>
       </div>
       <div className="mt-10 shadow-[0px_1px_0px_0px_#D9D9D9]">
-      <SearchProject projects={projects || []} onSearch={handleSearch} />
+      <SearchProject onSearch={handleSearch} />
         <div className="hidden lg:grid lg:grid-cols-5 justify-between w-full">
           <div className="py-2 px-4 text-center">Project info</div>
           <div className="py-2 px-4 text-center">Project Manager</div>
@@ -49,8 +55,8 @@ export default function Home() {
           <div className="py-2 px-4 text-center">Status</div>
           <div className="py-2 px-4 text-center">Action</div>
         </div>
-        {currentItems?.map((project: any) => (
-          <ProjectListCard key={project.id} project={project} />
+        {currentItems?.map((project: Data) => (
+          <ProjectListCard key={project.project} project={project} />
         ))}
       </div>
       <div className="mt-4 flex w-full justify-center gap-4">
