@@ -3,7 +3,7 @@ import ProjectListCard from "./components/Cards/ProjectListCard";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import data from './datos.json';
-import SearchProject from "./components/searchProject";
+import SearchProject from "./components/SearchProject";
 
 interface ProjectsProps {
   project: string;
